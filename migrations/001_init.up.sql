@@ -1,0 +1,7 @@
+CREATE TABLE department (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(200) NOT NULL,
+    parent_id int FOREIGN KEY DEFAULT NULL,
+    created_at TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW() 
+);
+
