@@ -1,4 +1,5 @@
-CREATE TABLE department (
+-- +goose Up
+CREATE TABLE departments (
     id INTEGER PRIMARY KEY,
     name VARCHAR(200) NOT NULL,
     parent_id INTEGER,
@@ -10,7 +11,7 @@ CREATE TABLE department (
         ON DELETE SET NULL 
 );
 
-CREATE TABLE employee (
+CREATE TABLE employees (
     id INTEGER PRIMARY KEY,
     department_id INTEGER NOT NULL,
     full_name VARCHAR(200) NOT NULL,
@@ -23,4 +24,8 @@ CREATE TABLE employee (
         REFERENCES department(id) 
         ON DELETE CASCADE, 
 );
+
+-- +goose Down
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS departments;
 
